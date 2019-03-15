@@ -1,0 +1,63 @@
+{
+    "name": "slack-roll",
+    "version": "1.0.0",
+    "description": "Roll a random number through slack",
+    "main": "app.js",
+    "scripts": {
+        "start": "babel-node app.js",
+        "dev": "nodemon --inspect app.js --exec babel-node --",
+        "test": "mocha --require @babel/register tests/*.js"
+    },
+    "author": "Brian Chung",
+    "license": "ISC",
+    "dependencies": {
+        "babel-cli": "^7.0.0-0",
+        "body-parser": "^1.18.3",
+        "express": "^4.16.4",
+        "http-errors": "^1.7.2"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.2.3",
+        "@babel/core": "^7.3.4",
+        "@babel/node": "^7.2.2",
+        "@babel/plugin-proposal-class-properties": "^7.3.4",
+        "@babel/preset-env": "^7.3.4",
+        "@babel/register": "^7.0.0",
+        "babel-eslint": "^10.0.1",
+        "chai": "^4.2.0",
+        "eslint": "^5.15.1",
+        "eslint-config-airbnb-base": "^13.1.0",
+        "eslint-plugin-import": "^2.16.0",
+        "mocha": "^6.0.2",
+        "nodemon": "^1.18.10",
+        "supertest": "^4.0.0"
+    },
+    "eslintConfig": {
+        "extends": "airbnb-base",
+        "parser": "babel-eslint",
+        "env": {
+            "es6": true,
+            "browser": true,
+            "mocha": true
+        },
+        "rules": {
+            "brace-style": [
+                "error",
+                "stroustrup"
+            ],
+            "comma-dangle": [
+                "error",
+                "never"
+            ],
+            "no-unused-vars": [
+                "warn"
+            ],
+            "no-var": [
+                "off"
+            ],
+            "one-var": [
+                "off"
+            ]
+        }
+    }
+}
