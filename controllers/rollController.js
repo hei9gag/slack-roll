@@ -11,7 +11,7 @@ class RollController {
         if (!this.isValidInputFormat(splitedStrings)) {
           return res.status(200).send(
             {
-              response_type: 'ephemeral',
+              response_type: 'in_channel',
               text: 'Invalid input format.'
             }
           );
@@ -31,8 +31,8 @@ class RollController {
       const result = RandomNumberGenerator.generate(lowerBound, upperBound);
       return res.status(200).send(
         {
-          response_type: 'ephemeral',
-          text: (result) ? `Your rolling number is ${result}` : 'Invalid input format'
+          response_type: 'in_channel',
+          text: (result) ? `Your random number is ${result}` : 'Invalid input format'
         }
       );
     }
