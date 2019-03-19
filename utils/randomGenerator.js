@@ -1,17 +1,17 @@
-
-
 class RandomNumberGenerator {
   static isValidInput = (lowerBound, upperBound) => {
-    if (!lowerBound || !upperBound) {
+    if (lowerBound === null
+        || upperBound === null
+        || !Number.isInteger(lowerBound)
+        || !Number.isInteger(upperBound)) {
       return false;
     }
     return lowerBound < upperBound;
   }
 
   static generate = (lowerBound, upperBound) => {
-    const lower = lowerBound;
-    const upper = upperBound;
-
+    const lower = parseInt(lowerBound, 10);
+    const upper = parseInt(upperBound, 10);
     if (!this.isValidInput(lower, upper)) {
       return null;
     }

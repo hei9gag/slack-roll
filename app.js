@@ -1,13 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import createError from 'http-errors';
-import rollRouter from './routes/rollRouter';
+import rollRouter, { ROLL_END_POINT } from './routes/rollRouter';
 
 // Set up the express app
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/api/v1/roll', rollRouter);
+app.use(ROLL_END_POINT, rollRouter);
 
 app.get('*', (req, res) => {
   var err = createError(
