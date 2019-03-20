@@ -16,7 +16,7 @@ By passing two paraneters you can control the lower bound and upper bound. So it
 2. Use your favourite IDE to open the project
 3. Run **npm run start** to launch the app. Use **npm run dev** for local development. Use **npm run test** to run the test case.
 
-# Debug locally
+# Debug Locally
 1. Please install ngrok (https://ngrok.com/)
 2. Then run the command ngrok http 5000
 3. ngrok will generate a URL and you can test the service through Postman or paste the URL in the slack command config
