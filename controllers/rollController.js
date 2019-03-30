@@ -2,6 +2,19 @@ import RandomNumberGenerator from '../utils/randomGenerator';
 
 class RollController {
     rollARandomNumber = (req, res) => {
+      // example input
+      /*
+      req:{
+        "token":"saV9Tv8iP8bBiLqdbiXyXCrG",
+        "team_id":"TH19Z6JEA",
+        "team_domain":"zuhlkehk",
+        "channel_id":"CGXEHAK8Q",
+        "channel_name":"general",
+        "user_id":"UH06UQDTP",
+        "user_name":"brian.chung",
+        "command":"/roll","text":"",
+        "response_url":"https://hooks.slack.com/commands/TH19Z6JEA/595083220103/imIxVOjIlPrHvLKia9ahISWo","trigger_id":"593979297364.579339222486.1fa6c03a1f94d25cc63aa853b468032a"}
+      */
       const { text } = req.body;
       let lowerBound = 0;
       let upperBound = 100;
