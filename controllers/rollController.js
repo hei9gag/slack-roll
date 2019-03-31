@@ -43,6 +43,7 @@ class RollController {
 
     isValidInputFormat = splitedString => splitedString.length <= 2
 
+    /*
     sendRequest = (url) => {
       axios.post(url, {
         response_type: 'in_channel',
@@ -52,7 +53,7 @@ class RollController {
       }).catch((error) => {
 
       });
-    }
+    }*/
 }
 
 const rollController = new RollController();
