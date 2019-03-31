@@ -10,10 +10,15 @@ class YahooWeatherApi {
   fetchWeatherByLocation = (location) => {
     const requestUrl = `${YahooWeatherApi.baseUrl}/forecastrss?location=${location}&format=json`;
     const result = this.client.execute(requestUrl);
-    result.then((response) => {
-      console.log(`response:${response.data}`);
+    return result.then((response) => {
+      // TODO parse data and cache result in memory
+      const { data } = response;
+      return new Promise((resolve) => {
+        resolve(data);
+      });
     }).catch((error) => {
-      console.log(`error:${error}`);
+      // eslint-disable-next-line no-console
+      console.log(`[YahooWeatherApi] error:${error}`);
     });
   }
 }

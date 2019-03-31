@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import createError from 'http-errors';
 import dotenv from 'dotenv';
 import rollRouter, { ROLL_END_POINT } from './routes/rollRouter';
+import yahooWeatherApi from './network/weather/yahooWeatherApi';
 
 dotenv.config({ path: 'config/.env' });
 
