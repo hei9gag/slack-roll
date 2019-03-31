@@ -1,4 +1,7 @@
 import OAuth from 'oauth';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: 'config/.env' });
 
 class YahooWeatherClient {
   constructor() {
@@ -39,41 +42,21 @@ class YahooWeatherClient {
     );
   }
 
-  execute = async (requestUrl) => {
+  execute = requestUrl => new Promise((resolve, reject) => {
     this.request.get(
       requestUrl,
       null,
       null,
-      (err, data, result) => new Promise((resolve, reject) => {
+      (err, data, result) => {
         if (err) {
-          // eslint-disable-next-line no-console
-          console.log(`[Weather] Failed to execute url:${err}`);
           reject(err);
         }
         else {
           resolve({ data, result });
         }
-      })
+      }
     );
-  }
-  // fetchLocationWeather = (location) => {
-  //   const requestUrl = `${this.baseUrl}/forecastrss?location=${location}&format=json`;
-  //   // console.log('requestUrl:' + requestUrl);
-  //   this.request.get(
-  //     requestUrl,
-  //     null,
-  //     null,
-  //     (err, data, result) => {
-  //       if (err) {
-  //         console.log(err);
-  //       }
-  //       else {
-  //         console.log(data);
-  //       }
-  //     }
-  //   );
-  // }
+  })
 }
-
-const yahooWeatherController = new YahooWeatherClient();
-export default yahooWeatherController;
+const yahooWeatherClient = new YahooWeatherClient();
+export default yahooWeatherClient;
