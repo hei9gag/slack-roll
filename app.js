@@ -1,7 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import createError from 'http-errors';
+import dotenv from 'dotenv';
 import rollRouter, { ROLL_END_POINT } from './routes/rollRouter';
+
+dotenv.config({ path: 'config/.env' });
 
 // Set up the express app
 const app = express();
