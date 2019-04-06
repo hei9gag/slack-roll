@@ -1,10 +1,10 @@
 import { expect } from 'chai';
-import Condition from '../../models/condition';
+import CurrentWeather from '../../models/currentWeather';
 
-describe('Create Condition model', () => {
-  it('should return a new Condition', () => {
+describe('Create CurrentWeather model', () => {
+  it('should return a new CurrentWeather', () => {
     // city, region, country, lat, long
-    const model = new Condition('Mostly Clear', 33, 76);
+    const model = new CurrentWeather('Mostly Clear', 33, 76);
     expect(model.text).to.be.equals('Mostly Clear');
     expect(model.code).to.be.equals(33);
     expect(model.temperature).to.be.equals(76);
