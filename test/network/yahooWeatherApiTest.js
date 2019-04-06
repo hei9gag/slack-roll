@@ -5,7 +5,6 @@ describe('Send request to fetch weather info', () => {
   it('should return weather json', (done) => {
     const result = yahooWeatherApi.fetchWeatherByLocation('hongkong');
     result.then((data) => {
-      console.log(data);
       expect(data).to.be.not.a('null');
       done();
     });
