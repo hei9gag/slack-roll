@@ -10,3 +10,10 @@ describe('Create CurrentWeather model', () => {
     expect(model.temperature).to.be.equals(76);
   });
 });
+
+describe('Get weather description', () => {
+  it('should decode the int value and returns cooresponding string', () => {
+    const model = new CurrentWeather('Mostly Clear', 33, 76);
+    expect(model.getWeatherDescription()).to.be.equals('fair (night)');
+  });
+});

@@ -1,3 +1,5 @@
+import decode from '../utils/decodeWeatherHelper';
+
 class CurrentWeather {
   constructor(text, code, temperature, wind, atmosphere, astronomy) {
     this.text = text;
@@ -7,6 +9,8 @@ class CurrentWeather {
     this.atmosphere = atmosphere;
     this.astronomy = astronomy;
   }
+
+  getWeatherDescription = () => decode(this.code)
 }
 
 export default CurrentWeather;

@@ -12,7 +12,6 @@ class YahooWeatherApi {
     const result = this.client.execute(requestUrl);
     return result
       .then((response) => {
-        // TODO parse data and cache result in memory
         const { data } = response;
         return data;
       })

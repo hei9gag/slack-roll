@@ -20,3 +20,6 @@ By passing two paraneters you can control the lower bound and upper bound. So it
 1. Please install ngrok (https://ngrok.com/)
 2. Then run the command ngrok http 5000
 3. ngrok will generate a URL and you can test the service through Postman or paste the URL in the slack command config
+
+# Run Single Test
+npm test -- --grep "weather code";
