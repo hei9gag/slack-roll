@@ -8,11 +8,19 @@ class WeatherController {
     yahooWeatherApi.fetchWeatherByLocation('hongkong')
       .then((weatherJson) => {
         const weatherDetail = parser(weatherJson);
+        const weatherResponseStr = this.buildWeatherString(weatherDetail);
         return res.status(200).send({
           response_type: 'in_channel',
-          data: weatherDetail
+          text: weatherResponseStr
         });
       });
+  }
+
+  buildWeatherString = (weatherDetail) => {
+    const { currentWeather } = weatherDetail;
+    const { wind, atmosphere, astronomy } = currentWeather;
+    const weatherStr = `*Temperature:* ${currentWeather.temperature}\n*Humidity:* ${atmosphere.humidity}`;
+    return weatherStr;
   }
 }
 
