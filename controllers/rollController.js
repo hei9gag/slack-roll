@@ -31,12 +31,10 @@ class RollController {
       }
       const result = RandomNumberGenerator.generate(lowerBound, upperBound);
       // this.sendRequest(response_url);
-      return res.status(200).send(
-        {
-          response_type: 'in_channel',
-          text: (result) ? `Your random number is ${result}` : 'Invalid input format'
-        }
-      );
+      return res.status(200).send({
+        response_type: 'in_channel',
+        text: (result) ? `Your random number is ${result}` : 'Invalid input format'
+      });
     }
 
     isValidInputFormat = splitedString => splitedString.length <= 2

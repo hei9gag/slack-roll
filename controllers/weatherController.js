@@ -11,17 +11,19 @@ class WeatherController {
         const weatherDetail = parser(weatherJson);
         this.sendWeatherResponse(response_url, weatherDetail);
       });
-    res.status(200);
+    return res.status(200).send({
+      response_type: 'in_channel'
+    });
   }
 
   buildWeatherString = (weatherDetail) => {
     const { currentWeather } = weatherDetail;
     const { wind, atmosphere, astronomy } = currentWeather;
     const weatherStr = `*Temperature:* ${currentWeather.temperature}\n
-      *Humidity:* ${atmosphere.humidity}\n
-      *Wind Chill:* ${wind.chill}\n
-      *Wind Speed:* ${wind.speed}\n
-      *Sunset:* ${astronomy.sunset}`;
+    *Humidity:* ${atmosphere.humidity}\n
+    *Wind Chill:* ${wind.chill}\n
+    *Wind Speed:* ${wind.speed}\n
+    *Sunset:* ${astronomy.sunset}`;
     return weatherStr;
   }
 

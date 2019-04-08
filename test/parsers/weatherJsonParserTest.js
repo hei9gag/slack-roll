@@ -8,11 +8,11 @@ describe('Load weather json', () => {
     const weather = JSON.parse(jsonData);
     const weatherDetail = parse(jsonData);
     const { location } = weather;
-    expect(weatherDetail.city).to.be.equals(location.city);
-    expect(weatherDetail.region).to.be.equals(location.region);
-    expect(weatherDetail.country).to.be.equals(location.country);
-    expect(weatherDetail.lat).to.be.equals(location.lat);
-    expect(weatherDetail.long).to.be.equals(location.long);
+    expect(weatherDetail.location.city).to.be.equals(location.city);
+    expect(weatherDetail.location.region).to.be.equals(location.region);
+    expect(weatherDetail.location.country).to.be.equals(location.country);
+    expect(weatherDetail.location.lat).to.be.equals(location.lat);
+    expect(weatherDetail.location.long).to.be.equals(location.long);
 
     const {
       wind,
@@ -20,9 +20,9 @@ describe('Load weather json', () => {
       astronomy
     } = weather.current_observation;
 
-    expect(weatherDetail.wind.chill).to.be.equals(wind.chill);
-    expect(weatherDetail.astronomy.sunrise).to.be.equals(astronomy.sunrise);
-    expect(weatherDetail.atmosphere.humidity).to.be.equals(atmosphere.humidity);
-    expect(weatherDetail.length).to.be.equals(10);
+    expect(weatherDetail.currentWeather.wind.chill).to.be.equals(wind.chill);
+    expect(weatherDetail.currentWeather.astronomy.sunrise).to.be.equals(astronomy.sunrise);
+    expect(weatherDetail.currentWeather.atmosphere.humidity).to.be.equals(atmosphere.humidity);
+    expect(weatherDetail.forecasts.length).to.be.equals(10);
   });
 });
