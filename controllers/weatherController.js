@@ -2,7 +2,6 @@ import axios from 'axios';
 import yahooWeatherApi from '../network/weather/yahooWeatherApi';
 import parser from '../parsers/weatherJsonParser';
 
-
 class WeatherController {
   fetchWeather = (req, res) => {
     // eslint-disable-next-line camelcase
@@ -27,7 +26,6 @@ class WeatherController {
   }
 
   sendWeatherResponse = (reponseUrl, weatherDetail) => {
-    console.log('Send weather response');
     const weatherResponseStr = this.buildWeatherString(weatherDetail);
     axios.post(reponseUrl, {
       response_type: 'in_channel',

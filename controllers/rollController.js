@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import RandomNumberGenerator from '../utils/randomGenerator';
 
 class RollController {
@@ -42,18 +40,6 @@ class RollController {
     }
 
     isValidInputFormat = splitedString => splitedString.length <= 2
-
-    /*
-    sendRequest = (url) => {
-      axios.post(url, {
-        response_type: 'in_channel',
-        text: 'PK1234'
-      }).then((response) => {
-
-      }).catch((error) => {
-
-      });
-    }*/
 }
 
 const rollController = new RollController();
