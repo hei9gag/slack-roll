@@ -19,11 +19,7 @@ class WeatherController {
   buildWeatherString = (weatherDetail) => {
     const { currentWeather } = weatherDetail;
     const { wind, atmosphere, astronomy } = currentWeather;
-    const weatherStr = `*Temperature:* ${currentWeather.temperature}\n
-    *Humidity:* ${atmosphere.humidity}\n
-    *Wind Chill:* ${wind.chill}\n
-    *Wind Speed:* ${wind.speed}\n
-    *Sunset:* ${astronomy.sunset}`;
+    const weatherStr = `*Weather:* ${currentWeather.text}${currentWeather.getWeatherEmoji()}\n*Temperature:* ${currentWeather.temperature}°C\n*Humidity:* ${atmosphere.humidity}%\n*Visibility:* ${atmosphere.visibility}km\n*Wind Speed:* ${wind.speed}km/h\n*Sunset:* ${astronomy.sunset}`;
     return weatherStr;
   }
 
