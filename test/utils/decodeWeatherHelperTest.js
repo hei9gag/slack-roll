@@ -1,12 +1,24 @@
 import { expect } from 'chai';
-import decode from '../../utils/decodeWeatherHelper';
+import { mapToDescription, mapToEmoji } from '../../utils/decodeWeatherHelper';
 
 describe('Received a weather code', () => {
-  it('should decode the code and returns cooresponding message', () => {
-    let result = decode(4700);
-    expect(result).to.be.equals('not available');
+  describe('Get weather description', () => {
+    it('Should return weather description based on the code', () => {
+      let result = mapToDescription(4700);
+      expect(result).to.be.equals('not available');
 
-    result = decode(0);
-    expect(result).to.be.equals('tornado');
+      result = mapToDescription(0);
+      expect(result).to.be.equals('tornado');
+    });
+  });
+
+  describe('Get weather emoji', () => {
+    it('Should return weather emoji', () => {
+      let result = mapToEmoji(0);
+      expect(result).to.be.equals(':tornado:');
+
+      result = mapToEmoji(9999);
+      expect(result).to.be.equals('');
+    });
   });
 });

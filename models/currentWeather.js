@@ -1,4 +1,4 @@
-import decode from '../utils/decodeWeatherHelper';
+import { mapToDescription, mapToEmoji } from '../utils/decodeWeatherHelper';
 
 class CurrentWeather {
   constructor(text, code, temperature, wind, atmosphere, astronomy) {
@@ -10,7 +10,9 @@ class CurrentWeather {
     this.astronomy = astronomy;
   }
 
-  getWeatherDescription = () => decode(this.code)
+  getWeatherDescription = () => mapToDescription(this.code)
+
+  getWeatherEmoji = () => mapToEmoji(this.code)
 }
 
 export default CurrentWeather;

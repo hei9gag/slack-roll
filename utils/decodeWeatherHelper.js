@@ -1,3 +1,55 @@
+const emojiMap = {
+  0: ':tornado:',
+  1: ':thunder_cloud_and_rain:',
+  2: ':tornado:',
+  3: ':thunder_cloud_and_rain:',
+  4: ':thunder_cloud_and_rain:',
+  5: ':rain_cloud:',
+  6: ':rain_cloud:',
+  7: ':rain_cloud:',
+  8: ':partly_sunny_rain:',
+  9: ':partly_sunny_rain:',
+  10: ':rain_cloud:',
+  11: ':rain_cloud:',
+  12: ':rain_cloud:',
+  13: ':snow_cloud:',
+  14: ':snow_cloud:',
+  15: ':snow_cloud:',
+  16: ':snow_cloud:',
+  17: ':foggy:',
+  18: ':foggy:',
+  19: ':foggy:',
+  20: ':foggy:',
+  21: ':foggy:',
+  22: ':foggy:',
+  23: ':wind_blowing_face:',
+  24: ':wind_blowing_face:',
+  25: ':snowman:',
+  26: ':sun_small_cloud:',
+  27: ':sun_small_cloud:',
+  28: ':sun_small_cloud:',
+  29: ':sun_small_cloud:',
+  30: ':sun_small_cloud:',
+  31: '',
+  32: ':sunny:',
+  33: '',
+  34: '',
+  35: ':rain_cloud:',
+  36: ':sunny:',
+  37: ':thunder_cloud_and_rain:',
+  38: ':thunder_cloud_and_rain:',
+  39: ':thunder_cloud_and_rain:',
+  40: ':rain_cloud:',
+  41: ':snow_cloud:',
+  42: ':snow_cloud:',
+  43: ':snowman:',
+  44: ':sun_small_cloud:',
+  45: ':thunder_cloud_and_rain:',
+  46: ':snow_cloud:',
+  47: ':thunder_cloud_and_rain:',
+  3200: ''
+};
+
 const codeMap = {
   0: 'tornado',
   1: 'tropical storm',
@@ -50,6 +102,6 @@ const codeMap = {
   3200: 'not available'
 };
 
-const decode = code => codeMap[code] || codeMap[3200];
+export const mapToDescription = code => codeMap[code] || codeMap[3200];
 
-export default decode;
+export const mapToEmoji = code => emojiMap[code] || '';
