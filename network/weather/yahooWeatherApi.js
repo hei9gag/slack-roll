@@ -7,7 +7,7 @@ class YahooWeatherApi {
     this.client = weatherClient;
   }
 
-  fetchWeatherByLocation = (location) => {
+  fetchWeatherByLocation = (location = 'hongkong') => {
     const requestUrl = `${YahooWeatherApi.baseUrl}/forecastrss?location=${location}&format=json&u=c`;
     const result = this.client.execute(requestUrl);
     return result

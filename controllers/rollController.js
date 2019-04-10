@@ -2,8 +2,7 @@ import RandomNumberGenerator from '../utils/randomGenerator';
 
 class RollController {
     rollARandomNumber = (req, res) => {
-      // eslint-disable-next-line camelcase
-      const { response_url, text } = req.body;
+      const { text } = req.body;
       let lowerBound = 0;
       let upperBound = 100;
 
@@ -30,7 +29,6 @@ class RollController {
         }
       }
       const result = RandomNumberGenerator.generate(lowerBound, upperBound);
-      // this.sendRequest(response_url);
       return res.status(200).send({
         response_type: 'in_channel',
         text: (result) ? `Your random number is ${result}` : 'Invalid input format'

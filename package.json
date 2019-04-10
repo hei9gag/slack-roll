@@ -6,7 +6,8 @@
     "scripts": {
         "start": "babel-node app.js",
         "dev": "nodemon --inspect app.js --exec babel-node --",
-        "test": "mocha --require @babel/register test/**/*.js"
+        "test": "mocha --require @babel/register test/**/*.js",
+        "start-db": "redis-server"
     },
     "author": "Brian Chung",
     "license": "ISC",
