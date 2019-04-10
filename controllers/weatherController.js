@@ -2,6 +2,7 @@ import axios from 'axios';
 import yahooWeatherApi from '../network/weather/yahooWeatherApi';
 import parser from '../parsers/weatherJsonParser';
 import CacheManager, { WEATHER_CACHE_KEY } from '../utils/cacheManager';
+import WeatherDetail from '../models/weatherDetail';
 
 const WEATHER_CACHE_TIME = 3600;
 
@@ -19,7 +20,8 @@ class WeatherController {
   buildWeatherString = (weatherDetail) => {
     const { currentWeather } = weatherDetail;
     const { wind, atmosphere, astronomy } = currentWeather;
-    const weatherStr = `*Weather:* ${currentWeather.text}${currentWeather.getWeatherEmoji()}\n*Temperature:* ${currentWeather.temperature}°C\n*Humidity:* ${atmosphere.humidity}%\n*Visibility:* ${atmosphere.visibility}km\n*Wind Speed:* ${wind.speed}km/h\n*Sunset:* ${astronomy.sunset}`;
+    const weatherEmoji = currentWeather.getWeatherEmoji();
+    const weatherStr = `*Weather:* ${currentWeather.text}${weatherEmoji}\n*Temperature:* ${currentWeather.temperature}°C\n*Humidity:* ${atmosphere.humidity}%\n*Visibility:* ${atmosphere.visibility}km\n*Wind Speed:* ${wind.speed}km/h\n*Sunset:* ${astronomy.sunset}`;
     return weatherStr;
   }
 
@@ -49,7 +51,8 @@ class WeatherController {
               resolve(weatherDetail);
             });
         }
-        return resolve(result);
+        const weatherDetail = WeatherDetail.fromJson(result);
+        return resolve(weatherDetail);
       })
       .catch(err => reject(err));
   })

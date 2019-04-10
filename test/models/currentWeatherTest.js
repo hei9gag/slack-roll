@@ -17,3 +17,10 @@ describe('Get weather description', () => {
     expect(model.getWeatherDescription()).to.be.equals('fair (night)');
   });
 });
+
+describe('Get weather emoji', () => {
+  it('should return the description emoji', () => {
+    const model = new CurrentWeather('Mostly Clear', 33, 76);
+    expect(model.getWeatherEmoji()).to.be.equals(':sunny:');
+  });
+});
