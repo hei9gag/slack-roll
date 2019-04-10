@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import RandomNumberGenerator from '../utils/randomGenerator';
+import RandomNumberGenerator from '../../utils/randomGenerator';
 
 describe('Received a random number generator request', () => {
   describe('When lower bound is greater than upper bound', () => {

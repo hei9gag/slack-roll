@@ -1,5 +1,5 @@
 import request from 'supertest';
-import { ROLL_END_POINT } from '../routes/rollRouter';
+import { ROLL_END_POINT } from '../../routes/rollRouter';
 
 const apiRequest = request('http://localhost:5000');
 

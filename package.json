@@ -6,15 +6,20 @@
     "scripts": {
         "start": "babel-node app.js",
         "dev": "nodemon --inspect app.js --exec babel-node --",
-        "test": "mocha --require @babel/register tests/*.js"
+        "test": "mocha --require @babel/register test/**/*.js",
+        "start-db": "redis-server"
     },
     "author": "Brian Chung",
     "license": "ISC",
     "dependencies": {
+        "axios": "^0.18.0",
         "babel-cli": "^7.0.0-0",
         "body-parser": "^1.18.3",
+        "dotenv": "^7.0.0",
         "express": "^4.16.4",
-        "http-errors": "^1.7.2"
+        "http-errors": "^1.7.2",
+        "oauth": "^0.9.15",
+        "redis": "^2.8.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.2.3",
