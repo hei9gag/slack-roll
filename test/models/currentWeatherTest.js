@@ -39,5 +39,6 @@ describe('Receive a weather detail json', () => {
     expect(weatherDetail.location.country).to.be.equals(location.country);
     expect(weatherDetail.location.lat).to.be.equals(location.lat);
     expect(weatherDetail.location.long).to.be.equals(location.long);
+    expect(weatherDetail.currentWeather.getWeatherEmoji).to.be.not.a('undefined');
   });
 });
