@@ -16,6 +16,14 @@ By passing two paraneters you can control the lower bound and upper bound. So it
 2. Use your favourite IDE to open the project
 3. Run **npm run start** to launch the app. Use **npm run dev** for local development. Use **npm run test** to run the test case.
 
+# Setup Env variables
+Please add your yahoo weather app id, client and secret to config .env file
+```
+YAHOO_WEATHER_APP_ID=
+YAHOO_WEATHER_CLIENT_ID=
+YAHOO_WEATHER_CLIENT_SECRET=
+```
+
 # Debug Locally
 1. Please install ngrok (https://ngrok.com/)
 2. Then run the command ngrok http 5000
