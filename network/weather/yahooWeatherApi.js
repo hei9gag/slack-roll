@@ -7,18 +7,19 @@ class YahooWeatherApi {
     this.client = weatherClient;
   }
 
-  fetchWeatherByLocation = (location = 'hongkong') => {
+  fetchWeatherByLocation = async (location = 'hongkong') => {
     const requestUrl = `${YahooWeatherApi.baseUrl}/forecastrss?location=${location}&format=json&u=c`;
-    const result = this.client.execute(requestUrl);
-    return result
-      .then((response) => {
-        const { data } = response;
-        return data;
-      })
-      .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.log(`[YahooWeatherApi] error:${error}`);
-      });
+    let weatherData = null;
+    try {
+      const response = await this.client.execute(requestUrl);
+      const { data } = response;
+      weatherData = data;
+    }
+    catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(`[YahooWeatherApi] error:${error}`);
+    }
+    return weatherData;
   }
 }
 

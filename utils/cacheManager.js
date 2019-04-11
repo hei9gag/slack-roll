@@ -16,7 +16,7 @@ class CacheManager {
     return client.set(key, JSON.stringify(json), 'EX', timestamp);
   }
 
-  static getJsonValue = key => new Promise((resolve, reject) => {
+  static getJsonValue = async key => new Promise((resolve, reject) => {
     client.get(key, (err, result) => {
       if (err) {
         return reject(err);
