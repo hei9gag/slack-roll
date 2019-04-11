@@ -42,7 +42,7 @@ class YahooWeatherClient {
     );
   }
 
-  execute = requestUrl => new Promise((resolve, reject) => {
+  execute = async requestUrl => new Promise((resolve, reject) => {
     this.request.get(
       requestUrl,
       null,

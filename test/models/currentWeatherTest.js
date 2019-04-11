@@ -1,7 +1,6 @@
 import fs from 'fs';
 import { expect } from 'chai';
 import CurrentWeather from '../../models/currentWeather';
-import parse from '../../parsers/weatherJsonParser';
 import WeatherDetail from '../../models/weatherDetail';
 
 describe('Create CurrentWeather model', () => {

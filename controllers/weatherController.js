@@ -40,22 +40,34 @@ class WeatherController {
     });
   }
 
-  retrieveWeatherDetail = () => new Promise((resolve, reject) => {
-    CacheManager.getJsonValue(WEATHER_CACHE_KEY)
-      .then((result) => {
-        if (result == null) {
-          return yahooWeatherApi.fetchWeatherByLocation()
-            .then((weatherJson) => {
-              const weatherDetail = parser(weatherJson);
-              CacheManager.setJsonValue(WEATHER_CACHE_KEY, WEATHER_CACHE_TIME, weatherDetail);
-              resolve(weatherDetail);
-            });
-        }
-        const weatherDetail = WeatherDetail.fromJson(result);
-        return resolve(weatherDetail);
-      })
-      .catch(err => reject(err));
-  })
+  retrieveWeatherDetail = async () => {
+    const result = await CacheManager.getJsonValue(WEATHER_CACHE_KEY);
+    let weatherDetail = null;
+    if (result == null) {
+      const weatherJson = await yahooWeatherApi.fetchWeatherByLocation();
+      weatherDetail = parser(weatherJson);
+      CacheManager.setJsonValue(WEATHER_CACHE_KEY, WEATHER_CACHE_TIME, weatherDetail);
+      return weatherDetail;
+    }
+    weatherDetail = WeatherDetail.fromJson(result);
+    return weatherDetail;
+  }
+
+  //   CacheManager.getJsonValue(WEATHER_CACHE_KEY)
+  //     .then((result) => {
+  //       if (result == null) {
+  //         return yahooWeatherApi.fetchWeatherByLocation()
+  //           .then((weatherJson) => {
+  //             const weatherDetail = parser(weatherJson);
+  //             CacheManager.setJsonValue(WEATHER_CACHE_KEY, WEATHER_CACHE_TIME, weatherDetail);
+  //             resolve(weatherDetail);
+  //           });
+  //       }
+  //       const weatherDetail = WeatherDetail.fromJson(result);
+  //       return resolve(weatherDetail);
+  //     })
+  //     .catch(err => reject(err));
+  // })
 }
 
 const weatherController = new WeatherController();
