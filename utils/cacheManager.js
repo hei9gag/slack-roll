@@ -2,7 +2,7 @@ import redis from 'redis';
 
 export const WEATHER_CACHE_KEY = 'WEATHER_CACHE_KEY';
 
-const client = redis.createClient();
+const client = redis.createClient(process.env.REDIS_URL);
 
 // Redis errors to the console
 client.on('error', (err) => {

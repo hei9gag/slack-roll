@@ -2,17 +2,19 @@ version: '3.7'
 services:
   server:
     container_name: slack-server
-    restart: no
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-     - "5000:5000"
+     - '5000:5000'
+    environment:
+      - REDIS_URL=redis://cache
     volumes:
      - .:/app
      - /app/node_modules
     depends_on:
      - redis
   redis:
-    container_name: slack-redis
     image: redis:5.0.4-alpine
+    container_name: redis
